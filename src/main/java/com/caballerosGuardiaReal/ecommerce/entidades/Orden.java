@@ -8,6 +8,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import java.util.Date;
+import java.util.List;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -25,10 +26,12 @@ public class Orden {
     @Temporal(TemporalType.DATE)
     private Date fechaPedido;
     
-//    @OneToMany
-//    private Producto producto;
+    @OneToMany
+    private List<Producto> producto;
     
-    //private Estado pendiente; //pasa a confirmado cuando se emite el ticket
+    
+    
+    //private Estado pendiente; // PENDIENTE CANCELADO CONFIRMADO pasa a confirmado cuando se emite el ticket
 
     
 }
