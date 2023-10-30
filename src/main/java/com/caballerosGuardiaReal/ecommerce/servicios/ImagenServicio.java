@@ -2,6 +2,7 @@
 package com.caballerosGuardiaReal.ecommerce.servicios;
 
 import com.caballerosGuardiaReal.ecommerce.entidades.Imagen;
+import com.caballerosGuardiaReal.ecommerce.excepciones.MiException;
 import com.caballerosGuardiaReal.ecommerce.repositorios.ImagenRepositorio;
 import java.io.IOException;
 import java.util.Optional;
@@ -19,11 +20,18 @@ public class ImagenServicio {
       @Autowired
     private ImagenRepositorio imagenRepositorio;
 
-    public Imagen guardar(MultipartFile archivo) throws IOException {
+      
+      
+      
+    public Imagen guardar(MultipartFile archivo) throws MiException,IOException {
 
-        if (archivo != null) {
-
-                Imagen imagen = new Imagen();
+             if (archivo != null) {
+        
+        try {
+             
+       
+            
+                 Imagen imagen = new Imagen();
 
                 imagen.setMime(archivo.getContentType());
 
@@ -32,16 +40,35 @@ public class ImagenServicio {
                 imagen.setContenido(archivo.getBytes());
 
                 return imagenRepositorio.save(imagen);
+            
+            
+            
+            
+            
+        } catch (IOException e) {
+                
+                System.out.println(e.getMessage());
+                throw  new MiException("Error al guardar la imagen!");
+                
+         }
+        
         }
-        return null;
+
+               return null;   
+         
             }
 
-    public Imagen actualizar(MultipartFile archivo, String idImagen) throws IOException{
+    
+    
+    
+    public Imagen actualizar(MultipartFile archivo, String idImagen) throws IOException, MiException{
     
         if (archivo != null) {
 
-           
-                Imagen imagen = new Imagen();
+            
+            try {
+                
+            Imagen imagen = new Imagen();
 
                 if(idImagen!=null){
                     
@@ -63,10 +90,57 @@ public class ImagenServicio {
 
                 return imagenRepositorio.save(imagen);
 
+                
+                
+                
+            } catch (Exception e) {
+                   System.out.println(e.getMessage());
+                throw  new MiException("Error al actualizar la imagen!");
+                
+            }
+           
+ }
           
-        }
+       
 
         return null;
         
     }
+    
+    
+    
+  
+//    public boolean Eliminar(String idImagen) throws IOException, MiException{
+//    
+//        
+//        try {
+//            
+//              if (idImagen != null && !idImagen.trim().isEmpty()  ) {
+//            
+//          Optional<Imagen> respuesta = imagenRepositorio.findById(idImagen);
+//     
+//          if (respuesta.isPresent()) {
+//    
+//         imagenRepositorio.delete(respuesta.get());
+//
+//         return true;
+//          }
+//            
+//              }
+//  
+//            
+//        } catch (Exception e) {
+// 
+//               System.out.println(e.getMessage());
+//                throw  new MiException("Error al eliminar la imagen!");
+//        
+//        }
+//        
+//      
+//          
+// 
+//    
+//    return false;
+//    }
+//    
 }
