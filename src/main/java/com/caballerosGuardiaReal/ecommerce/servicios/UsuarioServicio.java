@@ -49,8 +49,8 @@ public class UsuarioServicio{
         u.setRol(Rol.CLIENTE);
         
         
-//        Imagen imagen = imagenServicio.guardar(archivo);
-//        u.setImagen(imagen);
+        Imagen imagen = imagenServicio.guardar(archivo);
+        u.setImagen(imagen);
         
         
         usuarioRepositorio.save(u);

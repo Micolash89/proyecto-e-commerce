@@ -23,7 +23,7 @@ public class ImagenServicio {
       
       
       
-    public Imagen guardar(MultipartFile archivo) throws MiException,IOException {
+    public Imagen guardar(MultipartFile archivo) throws MiException{
 
              if (archivo != null) {
         
@@ -61,7 +61,7 @@ public class ImagenServicio {
     
     
     
-    public Imagen actualizar(MultipartFile archivo, String idImagen) throws IOException, MiException{
+    public Imagen actualizar(MultipartFile archivo, String idImagen) throws MiException{
     
         if (archivo != null) {
 
