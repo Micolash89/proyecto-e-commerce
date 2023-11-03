@@ -1,4 +1,3 @@
-
 package com.caballerosGuardiaReal.ecommerce.servicios;
 
 import com.caballerosGuardiaReal.ecommerce.entidades.Imagen;
@@ -14,12 +13,13 @@ import org.springframework.web.multipart.MultipartFile;
  *
  * @author Matias Insaurralde
  */
-
 @Service
 public class ImagenServicio {
-      @Autowired
+
+    @Autowired
     private ImagenRepositorio imagenRepositorio;
 
+<<<<<<< HEAD
       
       
       
@@ -63,26 +63,15 @@ public class ImagenServicio {
     
     public Imagen actualizar(MultipartFile archivo, String idImagen) throws MiException{
     
+=======
+    public Imagen guardar(MultipartFile archivo) throws MiException, IOException {
+
+>>>>>>> master
         if (archivo != null) {
 
-            
             try {
-                
-            Imagen imagen = new Imagen();
 
-                if(idImagen!=null){
-                    
-                    Optional <Imagen> respuesta = imagenRepositorio.findById(idImagen);
-                    
-                    if(respuesta.isPresent()){
-                        
-                        imagen = respuesta.get();
-                    
-                    }
-                
-                }
-                
-                imagen.setMime(archivo.getContentType());
+                Imagen imagen = new Imagen();
 
                 imagen.setNombre(archivo.getName());
 
@@ -90,26 +79,61 @@ public class ImagenServicio {
 
                 return imagenRepositorio.save(imagen);
 
-                
-                
-                
-            } catch (Exception e) {
-                   System.out.println(e.getMessage());
-                throw  new MiException("Error al actualizar la imagen!");
-                
+            } catch (IOException e) {
+
+                System.out.println(e.getMessage());
+                throw new MiException("Error al guardar la imagen!");
+
             }
-           
- }
-          
-       
+
+        }
 
         return null;
-        
+
     }
-    
-    
-    
-  
+
+    public Imagen actualizar(MultipartFile archivo, String idImagen) throws IOException, MiException {
+
+        if (archivo != null) {
+
+            try {
+
+                Imagen imagen = new Imagen();
+
+                if (idImagen != null) {
+
+                    Optional<Imagen> respuesta = imagenRepositorio.findById(idImagen);
+
+                    if (respuesta.isPresent()) {
+
+                        imagen = respuesta.get();
+
+                    }
+
+                }
+
+                imagen.setNombre(archivo.getName());
+
+                imagen.setContenido(archivo.getBytes());
+
+                return imagenRepositorio.save(imagen);
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                throw new MiException("Error al actualizar la imagen!");
+
+            }
+
+        }
+
+        return null;
+
+    }
+
+    public Imagen obtenerImagenPorId(String id) {
+        return imagenRepositorio.findById(id).orElse(null);
+    }
+
 //    public boolean Eliminar(String idImagen) throws IOException, MiException{
 //    
 //        

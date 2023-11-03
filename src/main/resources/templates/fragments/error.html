@@ -8,7 +8,7 @@
 
 <header th:replace="/templates.fragments/NavBar :: header" class="header"></header>
 
-<section th:if="${session.usuarioSesion != null}" class="seccion bienvenida">
+<section th:if="${session.productoSesion != null}" class="seccion bienvenida">
     <div class="container m-5">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <h1 th:text="'ERROR! '+${codigo}"></h1>

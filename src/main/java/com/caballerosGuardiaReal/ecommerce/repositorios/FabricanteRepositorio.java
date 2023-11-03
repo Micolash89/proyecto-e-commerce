@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface FabricanteRepositorio extends JpaRepository<Fabricante, String>{
     
     
+    
+    
 }

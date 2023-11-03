@@ -3,7 +3,7 @@ package com.caballerosGuardiaReal.ecommerce.enumeraciones;
 
 
 public enum Condicion {
-    NUEVO("nuevo"), USADO("usado");
+    NUEVO("NUEVO"), USADO("USADO");
     
     final String valor;
     
