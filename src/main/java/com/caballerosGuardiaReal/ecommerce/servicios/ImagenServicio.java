@@ -18,55 +18,9 @@ public class ImagenServicio {
 
     @Autowired
     private ImagenRepositorio imagenRepositorio;
-
-<<<<<<< HEAD
-      
-      
-      
-    public Imagen guardar(MultipartFile archivo) throws MiException{
-
-             if (archivo != null) {
-        
-        try {
-             
-       
-            
-                 Imagen imagen = new Imagen();
-
-                imagen.setMime(archivo.getContentType());
-
-                imagen.setNombre(archivo.getName());
-
-                imagen.setContenido(archivo.getBytes());
-
-                return imagenRepositorio.save(imagen);
-            
-            
-            
-            
-            
-        } catch (IOException e) {
-                
-                System.out.println(e.getMessage());
-                throw  new MiException("Error al guardar la imagen!");
-                
-         }
-        
-        }
-
-               return null;   
-         
-            }
-
     
-    
-    
-    public Imagen actualizar(MultipartFile archivo, String idImagen) throws MiException{
-    
-=======
     public Imagen guardar(MultipartFile archivo) throws MiException, IOException {
 
->>>>>>> master
         if (archivo != null) {
 
             try {
@@ -75,6 +29,8 @@ public class ImagenServicio {
 
                 imagen.setNombre(archivo.getName());
 
+                imagen.setMime(archivo.getContentType());
+                
                 imagen.setContenido(archivo.getBytes());
 
                 return imagenRepositorio.save(imagen);

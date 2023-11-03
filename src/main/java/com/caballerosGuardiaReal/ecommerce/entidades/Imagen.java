@@ -29,6 +29,8 @@ public class Imagen {
      
     private String nombre;
 
+    private String mime;
+    
     @Lob
     @Basic(fetch = FetchType.LAZY)
     @Column(name = "contenido", columnDefinition = "LONGBLOB")
