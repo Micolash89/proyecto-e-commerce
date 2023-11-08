@@ -4,7 +4,7 @@ import com.caballerosGuardiaReal.ecommerce.entidades.Usuario;
 import com.caballerosGuardiaReal.ecommerce.servicios.UsuarioServicio;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +30,7 @@ public class AdminControlador {
         return "lista_usuarios.html";
     }
     
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    //@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/modificarRol/{id}")
     public String cambiarRol(@PathVariable String id){
         
