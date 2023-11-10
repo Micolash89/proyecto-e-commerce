@@ -10,17 +10,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
-//import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Data
 public class Producto {
 
     @Id
-//    @GeneratedValue(generator = "uuid")
-//    @GenericGenerator(name = "uuid", strategy = "uuid2")
-     @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     private String nombre;
