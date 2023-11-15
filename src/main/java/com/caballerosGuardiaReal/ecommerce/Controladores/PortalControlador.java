@@ -56,23 +56,12 @@ public class PortalControlador {
         
         return "login.html";
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
     
     
-    
-    
-    
-    
-    
-=======
-=======
-
->>>>>>> master
     @GetMapping
     public String inicio(ModelMap modelo){
     modelo.addAttribute("productos", productoServicio.listarProductos() );
         return  "index.html";
     }
->>>>>>> d42ffe70ed7ce58742169621168ef598797a33a1
+
 }
