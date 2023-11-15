@@ -4,6 +4,7 @@ import com.caballerosGuardiaReal.ecommerce.entidades.Categoria;
 import com.caballerosGuardiaReal.ecommerce.entidades.Fabricante;
 import com.caballerosGuardiaReal.ecommerce.entidades.Producto;
 import com.caballerosGuardiaReal.ecommerce.enumeraciones.Condicion;
+import com.caballerosGuardiaReal.ecommerce.excepciones.MiException;
 import com.caballerosGuardiaReal.ecommerce.servicios.CategoriaServicio;
 import com.caballerosGuardiaReal.ecommerce.servicios.FabricanteServicio;
 import com.caballerosGuardiaReal.ecommerce.servicios.ProductoServicio;
@@ -45,18 +46,16 @@ public class ProductoControlador {
     }
 
     @PostMapping("/registro")
-    public String registro(@RequestParam String nombre, @RequestParam Double precio, @RequestParam(required = false) String descripcion,
-            @RequestParam Integer stock, @RequestParam String condicion, @RequestParam(required = false) MultipartFile archivo,
+    public String registro(@RequestParam String nombre, @RequestParam(required = false) Double precio, @RequestParam(required = false) String descripcion,
+            @RequestParam(required = false) Integer stock, @RequestParam String condicion, @RequestParam(required = false) MultipartFile archivo,
             @RequestParam String idCategoria, @RequestParam String idFabricante,@RequestParam String EAN,  ModelMap modelo) {
-        System.out.println("----------------------------------------------------");
+      
         try {
-            //adentro de producto servicio valida y pouede dar un error
-            productoServicio.crearProducto(nombre, precio, descripcion, stock,Condicion.valueOf(condicion), idCategoria, archivo, idFabricante,EAN);
-        } catch (Exception e) {
-            //modelo.put("error",ex.getMessage());
+            productoServicio.crearProducto(nombre, precio, descripcion, stock, condicion, idCategoria, archivo, idFabricante,EAN);
+        } catch (MiException e) {
+            modelo.put("error",e.getMessage());
             List<Categoria> categorias = categoriaServicio.listarCategorias();
             List<Fabricante> fabricante = fabricanteServicio.ListarFabricantes();
-
             modelo.addAttribute("categorias", categorias);
             modelo.addAttribute("fabricantes", fabricante);
 
@@ -64,7 +63,7 @@ public class ProductoControlador {
         }
 
         ///nose a donde retornar
-        return "index.html";
+        return "redirect:/";
 
     }
 
@@ -79,7 +78,7 @@ public class ProductoControlador {
 
     }
 
-    @GetMapping("modificar/{id}")
+    @GetMapping("/modificar/{id}")
     public String modificar(@PathVariable String id, ModelMap modelo) {
 
         Producto producto = productoServicio.getOne(id);
@@ -88,7 +87,7 @@ public class ProductoControlador {
 
         modelo.addAttribute("producto", producto);
         modelo.addAttribute("categorias", categorias);
-        modelo.addAttribute("fabricante", fabricantes);
+        modelo.addAttribute("fabricantes", fabricantes);
 
         return "producto_modificar.html";
 
@@ -98,20 +97,21 @@ public class ProductoControlador {
     //@RequestParam Integer stock, @RequestParam Condicion condidion, @RequestParam(required = false) MultipartFile archivo,
     //@RequestParam String idCategoria, @RequestParam String idFabricante, ModelMap modelo) {
     @PostMapping("/modificar/{id}")
-    public String modificar(@PathVariable String id, @RequestParam String nombre, @RequestParam Double precio, @RequestParam(required = false) String descripcion,
-            @RequestParam Integer stock, @RequestParam String condicion, @RequestParam(required = false) MultipartFile archivo,
-            @RequestParam String idCategoria, @RequestParam String idFabricante, @RequestParam Boolean estado, @RequestParam String EAN, ModelMap modelo) {
+    public String modificar(@PathVariable String id, String nombre,  Double precio, String descripcion,
+             Integer stock,  String condicion,  MultipartFile archivo,
+            String idCategoria,  String idFabricante,  Boolean estado,  String EAN, ModelMap modelo) {
 
         try {
             //ver lo de estado
-            productoServicio.actualizar(idFabricante, nombre, precio, descripcion, stock,Condicion.valueOf(condicion) , idCategoria, archivo, idFabricante, estado, EAN);
+            productoServicio.actualizar(id,nombre,precio,descripcion,stock,condicion,idCategoria,archivo,idFabricante,estado,EAN);
+            modelo.put("exito", "se agrego exitosamente un producto");
             return "redirect:../lista";
-            
         } catch (Exception e) {
             Producto producto = productoServicio.getOne(id);
             List<Categoria> categorias = categoriaServicio.listarCategorias();
             List<Fabricante> fabricantes = fabricanteServicio.ListarFabricantes();
 
+            modelo.put("error", e.getMessage());
             modelo.addAttribute("producto", producto);
             modelo.addAttribute("categorias", categorias);
             modelo.addAttribute("fabricantes", fabricantes);

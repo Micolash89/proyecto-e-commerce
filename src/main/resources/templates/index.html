@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>E-commerce</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="../css/index.css">
-    </head>
-    <body>
-        <header class="navbar" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-            <nav class="navbar">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
 
-                <div class="container-fluid ">
-                    <a class="navbar-brand" href="#galeria">
-                        <img src="../img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                    </a>
-                    <a class="navbar-brand">Nombre de La pagina</a>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>
-                </div>
-            </nav>
-            <nav class="nav">
+<body>
+    <header class="navbar">
+
+        <nav class="navbar">
+
+            <div class="container-fluid ">
+                <a class="navbar-brand" href="#galeria">
+                    <img src="../img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                </a>
+                <a class="navbar-brand">Nombre de La pagina</a>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
+        <nav class="nav">
             <ul class="nav">
                 <li class="nav-item">
                     <a class="nav-link active link-light" aria-current="page" href="#">Inicio</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nuestros Productos</a>
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                        aria-expanded="false">Nuestros Productos</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Action</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -45,118 +49,144 @@
 
             </ul>
         </nav>
-        </header>
-       
-        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="../img/carrucel1.jpg" class="d-block w-100" alt="imagen">
-                </div>
-                <div class="carousel-item">
-                    <img src="../img/carrucel2.jpg" class="d-block w-100" alt="imagen">
-                </div>
-                <div class="carousel-item">
-                    <img src="../img/carrucel3.jpg" class="d-block w-100" alt="imagen">
-                </div>
+    </header>
+
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../img/carrucel1.jpg" class="d-block w-100" alt="imagen">
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <div class="carousel-item">
+                <img src="../img/carrucel2.jpg" class="d-block w-100" alt="imagen">
+            </div>
+            <div class="carousel-item">
+                <img src="../img/carrucel3.jpg" class="d-block w-100" alt="imagen">
+            </div>
         </div>
-        <section id="hero">
-            <h1>Los Mejores precios del Mercado</h1>
-        </section> 
-        <section id="galeria" class="container-fluid">
-            <h2>Nuestros productos</h2>
-            
-            <div class="container text-center">
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
-                        <div class="card" id="card">
-                            <img src="/proyecto-e-commerce/src/main/resources/img/fondo.jpg" class="card-img-top" alt="Producto">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <section id="hero">
+        <h1>Los Mejores precios del Mercado</h1>
+    </section>
+    <section id="galeria" class="container-fluid">
+        <h2>Nuestros productos</h2>
 
-                            <div class="card-body">
-                                <h5 class="card-title placeholder-glow">Nombre</h5>
-                                <p class="card-text placeholder-glow">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, eligendi. Dolor quos quia corrupti saepe perferendis neque odio labore mollitia accusantium delectus, necessitatibus illo repellendus, fugit laborum quas expedita aliquam!</p>
-                                <a href="#" class="btn btn-primary">Agregar al carrito</a>
-                                <a href="#" class="btn btn-primary">Ver detalles</a>
-                            </div>
+        <div class="container text-center">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card" id="card">
+                        <img src="/proyecto-e-commerce/src/main/resources/img/fondo.jpg" class="card-img-top"
+                            alt="Producto">
+
+                        <div class="card-body">
+                            <h5 class="card-title placeholder-glow">Nombre</h5>
+                            <p class="card-text placeholder-glow">Lorem ipsum dolor sit amet consectetur adipisicing
+                                elit. Corrupti, eligendi. Dolor quos quia corrupti saepe perferendis neque odio labore
+                                mollitia accusantium delectus, necessitatibus illo repellendus, fugit laborum quas
+                                expedita aliquam!</p>
+                            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            <a href="#" class="btn btn-primary">Ver detalles</a>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card" id="card">
-                            <img src="/proyecto-e-commerce/src/main/resources/img/fondo.jpg" class="card-img-top" alt="Producto">
+                </div>
+                <div class="col">
+                    <div class="card" id="card">
+                        <img src="/proyecto-e-commerce/src/main/resources/img/fondo.jpg" class="card-img-top"
+                            alt="Producto">
 
-                            <div class="card-body">
-                                <h5 class="card-title placeholder-glow">NOMBRE</h5>
-                                <p class="card-text placeholder-glow">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime labore minus dolores non hic similique reiciendis aliquam, blanditiis ipsum at a illum accusantium, nisi enim pariatur. Maiores voluptatum ad molestiae!</p>
-                                <a href="#" class="btn btn-primary">Agregar al carrito</a>
-                                <a href="#" class="btn btn-primary">Ver detalles</a>
-                            </div>
+                        <div class="card-body">
+                            <h5 class="card-title placeholder-glow">NOMBRE</h5>
+                            <p class="card-text placeholder-glow">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                elit. Maxime labore minus dolores non hic similique reiciendis aliquam, blanditiis ipsum
+                                at a illum accusantium, nisi enim pariatur. Maiores voluptatum ad molestiae!</p>
+                            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            <a href="#" class="btn btn-primary">Ver detalles</a>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card" id="card">
-                            <img src="/proyecto-e-commerce/src/main/resources/img/fondo.jpg" class="card-img-top" alt="Producto">
+                </div>
+                <div class="col">
+                    <div class="card" id="card">
+                        <img src="/proyecto-e-commerce/src/main/resources/img/fondo.jpg" class="card-img-top"
+                            alt="Producto">
 
-                            <div class="card-body">
-                                <h5 class="card-title placeholder-glow">NOMBRE</h5>
-                                <p class="card-text placeholder-glow">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non architecto inventore voluptatem obcaecati maiores ipsa, fugit molestiae reprehenderit est dicta optio vitae sed, ex accusamus unde eligendi totam sint. Maiores.</p>
-                                <a href="#" class="btn btn-primary">Agregar al carrito</a>
-                                <a href="#" class="btn btn-primary">Ver detalles</a>
-                            </div>
+                        <div class="card-body">
+                            <h5 class="card-title placeholder-glow">NOMBRE</h5>
+                            <p class="card-text placeholder-glow">Lorem ipsum dolor sit amet consectetur, adipisicing
+                                elit. Non architecto inventore voluptatem obcaecati maiores ipsa, fugit molestiae
+                                reprehenderit est dicta optio vitae sed, ex accusamus unde eligendi totam sint. Maiores.
+                            </p>
+                            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            <a href="#" class="btn btn-primary">Ver detalles</a>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card" id="card">
-                            <img src="/proyecto-e-commerce/src/main/resources/img/fondo.jpg" class="card-img-top" alt="Producto">
+                </div>
+                <div class="col">
+                    <div class="card" id="card">
+                        <img src="/proyecto-e-commerce/src/main/resources/img/fondo.jpg" class="card-img-top"
+                            alt="Producto">
 
-                            <div class="card-body">
-                                <h5 class="card-title placeholder-glow">NOMBRE</h5>
-                                <p class="card-text placeholder-glow">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non architecto inventore voluptatem obcaecati maiores ipsa, fugit molestiae reprehenderit est dicta optio vitae sed, ex accusamus unde eligendi totam sint. Maiores.</p>
-                                <a href="#" class="btn btn-primary">Agregar al carrito</a>
-                                <a href="#" class="btn btn-primary">Ver detalles</a>
-                            </div>
+                        <div class="card-body">
+                            <h5 class="card-title placeholder-glow">NOMBRE</h5>
+                            <p class="card-text placeholder-glow">Lorem ipsum dolor sit amet consectetur, adipisicing
+                                elit. Non architecto inventore voluptatem obcaecati maiores ipsa, fugit molestiae
+                                reprehenderit est dicta optio vitae sed, ex accusamus unde eligendi totam sint. Maiores.
+                            </p>
+                            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            <a href="#" class="btn btn-primary">Ver detalles</a>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card" id="card">
-                            <img src="/proyecto-e-commerce/src/main/resources/img/fondo.jpg" class="card-img-top" alt="Producto">
+                </div>
+                <div class="col">
+                    <div class="card" id="card">
+                        <img src="/proyecto-e-commerce/src/main/resources/img/fondo.jpg" class="card-img-top"
+                            alt="Producto">
 
-                            <div class="card-body">
-                                <h5 class="card-title placeholder-glow">NOMBRE</h5>
-                                <p class="card-text placeholder-glow">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non architecto inventore voluptatem obcaecati maiores ipsa, fugit molestiae reprehenderit est dicta optio vitae sed, ex accusamus unde eligendi totam sint. Maiores.</p>
-                                <a href="#" class="btn btn-primary">Agregar al carrito</a>
-                                <a href="#" class="btn btn-primary">Ver detalles</a>
-                            </div>
+                        <div class="card-body">
+                            <h5 class="card-title placeholder-glow">NOMBRE</h5>
+                            <p class="card-text placeholder-glow">Lorem ipsum dolor sit amet consectetur, adipisicing
+                                elit. Non architecto inventore voluptatem obcaecati maiores ipsa, fugit molestiae
+                                reprehenderit est dicta optio vitae sed, ex accusamus unde eligendi totam sint. Maiores.
+                            </p>
+                            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            <a href="#" class="btn btn-primary">Ver detalles</a>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card" id="card">
-                            <img src="/proyecto-e-commerce/src/main/resources/img/fondo.jpg" class="card-img-top" alt="Producto">
+                </div>
+                <div class="col">
+                    <div class="card" id="card">
+                        <img src="/proyecto-e-commerce/src/main/resources/img/fondo.jpg" class="card-img-top"
+                            alt="Producto">
 
-                            <div class="card-body">
-                                <h5 class="card-title placeholder-glow">NOMBRE</h5>
-                                <p class="card-text placeholder-glow">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non architecto inventore voluptatem obcaecati maiores ipsa, fugit molestiae reprehenderit est dicta optio vitae sed, ex accusamus unde eligendi totam sint. Maiores.</p>
-                                <a href="#" class="btn btn-primary">Agregar al carrito</a>
-                                <a href="#" class="btn btn-primary">Ver detalles</a>
-                            </div>
+                        <div class="card-body">
+                            <h5 class="card-title placeholder-glow">NOMBRE</h5>
+                            <p class="card-text placeholder-glow">Lorem ipsum dolor sit amet consectetur, adipisicing
+                                elit. Non architecto inventore voluptatem obcaecati maiores ipsa, fugit molestiae
+                                reprehenderit est dicta optio vitae sed, ex accusamus unde eligendi totam sint. Maiores.
+                            </p>
+                            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            <a href="#" class="btn btn-primary">Ver detalles</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <section id="como-pedir">
-            <h2>Aca va a ir un titulo</h2>
-        </section>
-        <footer>
+        </div>
+    </section>
+    <section id="como-pedir">
+        <h2>Aca va a ir un titulo</h2>
+    </section>
+    <footer>
 
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    </body>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
