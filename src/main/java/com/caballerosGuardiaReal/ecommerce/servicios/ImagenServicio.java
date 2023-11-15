@@ -30,7 +30,6 @@ public class ImagenServicio {
                 imagen.setNombre(archivo.getName());
 
                 imagen.setMime(archivo.getContentType());
-                
                 imagen.setContenido(archivo.getBytes());
 
                 return imagenRepositorio.save(imagen);
@@ -71,6 +70,8 @@ public class ImagenServicio {
                 imagen.setNombre(archivo.getName());
 
                 imagen.setContenido(archivo.getBytes());
+
+                imagen.setMime(archivo.getContentType());
 
                 return imagenRepositorio.save(imagen);
 

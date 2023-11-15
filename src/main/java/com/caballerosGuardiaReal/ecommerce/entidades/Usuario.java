@@ -5,19 +5,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
-
 
 @Entity
 @Data
 public class Usuario {
     
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "UUID", type = org.hibernate.id.uuid.UuidGenerator.class)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     
     private String nombreCompleto;
