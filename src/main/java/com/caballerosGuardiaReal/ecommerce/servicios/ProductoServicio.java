@@ -41,21 +41,20 @@ public class ProductoServicio {
     private ImagenServicio imagenServicio;
 
     @Transactional
-    //falta agrgar miException
     public Producto crearProducto(String nombre, Double precio, String descripcion, Integer stock,
-            Condicion condicion, String idCategoria, MultipartFile archivo, String idFabricante,
-            String EAN) {
+            String condicion, String idCategoria, MultipartFile archivo, String idFabricante,
+            String EAN) throws MiException {
 
+        validar(nombre, precio, stock, condicion, idCategoria, idFabricante, EAN);
 
         Producto producto = new Producto();
 
-        //falta validar
         //funcion recurrente que escriba un factorial, programacion recurrente
         producto.setNombre(nombre);
         producto.setPrecio(precio);
         producto.setDescripcion(descripcion);
         producto.setStock(stock);
-        producto.setCondicion(condicion);
+        producto.setCondicion(Condicion.valueOf(condicion));
         producto.setEstado(Boolean.TRUE);
         producto.setEAN(EAN);
         Optional<Fabricante> fabricanteRespuesta = fabricanteoRepositorio.findById(idFabricante);
@@ -96,15 +95,19 @@ public class ProductoServicio {
     @Transactional
     //agregar el miException
     //voy a listar la categoria y el fabricante
-    public Producto actualizar(String idProducto, String nombre, Double precio, String descripcion, Integer stock, Condicion condicion, String idCategoria, MultipartFile archivo, String idFabricante, Boolean estado, String EAN) {
-        //validar?
+    public Producto actualizar(String idProducto, String nombre, Double precio,
+            String descripcion, Integer stock, String condicion,
+            String idCategoria, MultipartFile archivo, String idFabricante,
+            Boolean estado, String EAN) throws MiException{
+        
+         validar(nombre, precio, stock, condicion, idCategoria, idFabricante, EAN);
 
         Optional<Producto> respuesta = productoRepositorio.findById(idProducto);
 
-        Optional<Categoria> categoriaRespuesta = categoriaRepositorio.findById(idFabricante);
+        Optional<Categoria> categoriaRespuesta = categoriaRepositorio.findById(idCategoria);
 
-        Optional<Fabricante> fabricanteRespuesta = fabricanteoRepositorio.findById(idCategoria);
-
+        Optional<Fabricante> fabricanteRespuesta = fabricanteoRepositorio.findById(idFabricante);
+       
         Categoria categoria;
 
         Fabricante fabricante;
@@ -132,7 +135,9 @@ public class ProductoServicio {
             producto.setDescripcion(descripcion);
             producto.setCategoria(categoria);
             producto.setFabricante(fabricante);
+            producto.setStock(stock);
             producto.setPrecio(precio);
+            producto.setCondicion(Condicion.valueOf(condicion) );
             producto.setEstado(estado);
             producto.setEAN(EAN);
             String idImagen = null;
@@ -182,6 +187,34 @@ public class ProductoServicio {
 
         }
 
+    }
+
+    private void validar(String nombre, Double precio, Integer stock,
+            String condicion, String idCategoria, String idFabricante,
+            String EAN) throws MiException {
+
+        if (nombre == null || nombre.isEmpty()) {
+            throw new MiException("El nombre no puede estar vacio");
+        }
+        if (precio == null || precio < 0) {
+            throw new MiException("El precio no puede estar vacio");
+        }
+        if (stock == null || stock < 0) {
+            throw new MiException("El stock no puede estar vacio o ser negativo");
+        }
+        if (condicion == null || condicion.isEmpty()) {
+            throw new MiException("la condición del producto no puede estar vacio");
+        }
+        if (idCategoria == null || idCategoria.isEmpty()) {
+            throw new MiException("La categoria no puede estar vacio");
+        }
+        if (idFabricante == null || idFabricante.isEmpty()) {
+            throw new MiException("El fabricante no puede estar vacio");
+        }
+        if (EAN == null) {
+            throw new MiException("El EAN no puede estar vacio");
+        }
+        
     }
 
 }
