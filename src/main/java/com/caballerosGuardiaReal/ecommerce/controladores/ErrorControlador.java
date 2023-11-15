@@ -2,13 +2,14 @@ package com.caballerosGuardiaReal.ecommerce.controladores;
 
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class ErrorControlador {
+public class ErrorControlador implements ErrorController{
 
     @RequestMapping(value = "/error", method = {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView errorPage(HttpServletRequest httpServletRequest) {
