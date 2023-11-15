@@ -55,58 +55,6 @@ public class SeguridadWeb  {
                 logout.permitAll();
             })
             .build();
-        
-//          return http
-//            .csrf(csrf -> csrf.disable())
-//            .authorizeHttpRequests(auth ->
-//            {
-//                auth.antMatchers(publicResources).permitAll(); // Rutas disponibles para cualquier usuario/visitante
-//                auth.antMatchers("/admin/**").hasAuthority("ADMIN"); // Rutas protegidas - solo pueden acceder quienes tengan el rol "ADMIN"
-//                auth.anyRequest().authenticated(); // Todas las demás rutas - disponible solo para usuarios logueados
-//            })
-//            .formLogin(auth ->
-//            {
-//                auth.loginPage("/login");
-//                auth.usernameParameter("email");
-//                auth.passwordParameter("password");
-//                auth.permitAll();
-//            })
-//                      .logout(logout ->
-//            {
-//                logout.logoutSuccessUrl("/");
-//                logout.logoutSuccessHandler((request, response, authentication) ->
-//                {
-//                    session.invalidate();
-//                    response.sendRedirect("/");
-//                });
-//            })
-//            .build();
-//        
-//        http.authorizeRequests()
-//                .requestMatchers("/admin/*").hasAnyRole("ADMIN")
-//                .requestMatchers("/user/**").hasAnyRole("CLIENTE") 
-//                .requestMatchers("/css/", "/js/", "/img/*", "/**", "/index", "/").permitAll()
-//                .and().formLogin()
-//                .loginPage("/login")
-//                .loginProcessingUrl("/logincheck")
-//                .usernameParameter("email")
-//                .passwordParameter("clave")
-//                .defaultSuccessUrl("/")
-//                .permitAll()
-//                .and().logout()
-//                .logoutUrl("/logout")
-//                .logoutSuccessUrl("/")
-//                .permitAll()
-//                .and().csrf()
-//                .disable();
-//        return http.build();
-//
-//        http.securityMatcher("/**")
-//            .authorizeHttpRequests((authz) -> authz
-//                .requestMatchers("/admin/**").hasRole("ADMIN")
-//               // .requestMatchers("/user/**").hasRole("USER")
-//                .anyRequest().authenticated()
-//            );
-//        return http.build();
+
     }
 }

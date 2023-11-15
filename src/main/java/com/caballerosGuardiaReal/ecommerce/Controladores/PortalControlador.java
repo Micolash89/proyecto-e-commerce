@@ -53,9 +53,10 @@ public class PortalControlador {
         if (error != null) {
             modelo.put("error", "usuario o contraseña invalida");
         }
-
+        
         return "login.html";
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
     
     
@@ -65,6 +66,9 @@ public class PortalControlador {
     
     
 =======
+=======
+
+>>>>>>> master
     @GetMapping
     public String inicio(ModelMap modelo){
     modelo.addAttribute("productos", productoServicio.listarProductos() );
