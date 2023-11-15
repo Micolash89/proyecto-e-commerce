@@ -18,6 +18,7 @@ public class ImagenServicio {
 
     @Autowired
     private ImagenRepositorio imagenRepositorio;
+   
     
     public Imagen guardar(MultipartFile archivo) throws MiException, IOException {
 
@@ -30,6 +31,7 @@ public class ImagenServicio {
                 imagen.setNombre(archivo.getName());
 
                 imagen.setMime(archivo.getContentType());
+                
                 imagen.setContenido(archivo.getBytes());
 
                 return imagenRepositorio.save(imagen);
