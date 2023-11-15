@@ -7,9 +7,9 @@
     <title>E-commerce</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/producto_modificar.css">
+    <!-- <link rel="stylesheet" href="../css/producto_modificar.css"> -->
     <!-- vcode - sacar despues  -->
-    <link rel="stylesheet" href="../static/css/producto_form.css">
+    <!-- <link rel="stylesheet" href="../static/css/producto_form.css"> -->
 
 </head>
 
@@ -24,8 +24,8 @@
 
             <div class="container input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">id</span>
-                <input type="text" hidden name="id" th:value="${id}" class="form-control"
-                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" name="id" th:value="${id}" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="container input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">nombre</span>
