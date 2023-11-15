@@ -1,6 +1,7 @@
 package com.caballerosGuardiaReal.ecommerce.Controladores;
 
 import com.caballerosGuardiaReal.ecommerce.excepciones.MiException;
+import com.caballerosGuardiaReal.ecommerce.servicios.ProductoServicio;
 import com.caballerosGuardiaReal.ecommerce.servicios.UsuarioServicio;
 import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ public class PortalControlador {
     
     @Autowired
     private UsuarioServicio usuarioServicio;
+    @Autowired
+    private ProductoServicio productoServicio;
     
     @GetMapping("/registrar")
     public String regristar(){
@@ -52,5 +55,10 @@ public class PortalControlador {
         }
 
         return "login.html";
+    }
+    @GetMapping
+    public String inicio(ModelMap modelo){
+    modelo.addAttribute("productos", productoServicio.listarProductos() );
+        return  "index.html";
     }
 }

@@ -81,7 +81,7 @@ public class SeguridadWeb  {
 //                });
 //            })
 //            .build();
-        
+//        
 //        http.authorizeRequests()
 //                .requestMatchers("/admin/*").hasAnyRole("ADMIN")
 //                .requestMatchers("/user/**").hasAnyRole("CLIENTE") 
@@ -100,7 +100,7 @@ public class SeguridadWeb  {
 //                .and().csrf()
 //                .disable();
 //        return http.build();
-
+//
 //        http.securityMatcher("/**")
 //            .authorizeHttpRequests((authz) -> authz
 //                .requestMatchers("/admin/**").hasRole("ADMIN")
