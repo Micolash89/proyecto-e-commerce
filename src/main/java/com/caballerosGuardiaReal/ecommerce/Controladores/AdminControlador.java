@@ -27,7 +27,7 @@ public class AdminControlador {
     public String listarUsuarios(ModelMap modelo){
         List<Usuario> listaUsuarios = usuarioServicio.getAll();
         modelo.put("usuarios", listaUsuarios);
-        return "lista_usuarios.html";
+        return "usuarios_lista.html";
     }
     
     //@PreAuthorize("hasAnyRole('ROLE_ADMIN')")

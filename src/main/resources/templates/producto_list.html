@@ -42,7 +42,7 @@
                         </td-->
                         <td >
 
-                            <img class="logo" th:if="${producto.imagen != null}" th:src="@{/imagen/producto/__${producto.imagen.id}__}"  alt="imagen producto" >
+                            <img class="logo" th:if="${producto.imagen != null}" th:src="@{/imagen/__${producto.imagen.id}__}"  alt="imagen producto" >
                         </td> 
 
                         <td th:text="${producto.nombre}"></td>
