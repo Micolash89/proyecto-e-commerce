@@ -4,6 +4,7 @@ package com.caballerosGuardiaReal.ecommerce.servicios;
 import com.caballerosGuardiaReal.ecommerce.entidades.Categoria;
 import com.caballerosGuardiaReal.ecommerce.repositorios.CategoriaRepositorio;
 import jakarta.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,14 @@ public class CategoriaServicio {
         
         return categoria;
         
+    }
+    
+    public List<Categoria> listarCategorias(){
+        return categoriaRepositorio.findAll();
+    }
+    
+    public Categoria getOne(String id){
+        return categoriaRepositorio.findById(id).get();
     }
     
 }

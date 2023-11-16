@@ -18,13 +18,14 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
-public class UsuarioServicio{
+public class UsuarioServicio implements UserDetailsService{
     
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
@@ -35,22 +36,22 @@ public class UsuarioServicio{
     
     
     @Transactional//Falta MiException
-    public void crearUsuario(MultipartFile archivo, String nombreCompleto, String clave, String email, String direccion, Integer codigoPostal)throws MiException {
+    public void crearUsuario(MultipartFile archivo, String nombreCompleto, String clave, String email, String direccion, Integer codigoPostal)throws MiException, IOException {
         
         //validar(nombreCompleto, clave, email, direccion, codigoPostal);
 
-        Usuario u = new Usuario();
+       Usuario u = new Usuario();
         
         u.setNombreCompleto(nombreCompleto);
-        u.setClave(clave);
+        u.setClave(new BCryptPasswordEncoder().encode(clave));
         u.setEmail(email);
         u.setDireccion(direccion);
         u.setCodigoPostal(codigoPostal);
         u.setRol(Rol.CLIENTE);
         
         
-//        Imagen imagen = imagenServicio.guardar(archivo);
-//        u.setImagen(imagen);
+        Imagen imagen = imagenServicio.guardar(archivo);
+        u.setImagen(imagen);
         
         
         usuarioRepositorio.save(u);
@@ -128,28 +129,28 @@ public class UsuarioServicio{
         }
     }
     
-//     @Override
-//    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-//
-//        Usuario usuario = usuarioRepositorio.buscarPorEmail(email);
-//
-//        if (usuario != null) {
-//
-//            List<GrantedAuthority> permisos = new ArrayList();
-//
-//            GrantedAuthority p = new SimpleGrantedAuthority("ROLE_" + usuario.getRol().toString());
-//
-//            permisos.add(p);
-//
-//            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-//
-//            HttpSession session = attr.getRequest().getSession(true);
-//
-//            session.setAttribute("usuariosession", usuario);
-//
-//            return new User(usuario.getEmail(), usuario.getClave(), permisos);
-//        } else {
-//            return null;
-//        }
-//}
+     @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+
+        Usuario usuario = usuarioRepositorio.buscarPorEmail(email);
+
+        if (usuario != null) {
+
+            List<GrantedAuthority> permisos = new ArrayList();
+
+            GrantedAuthority p = new SimpleGrantedAuthority("ROLE_" + usuario.getRol().toString());
+
+            permisos.add(p);
+
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+
+            HttpSession session = attr.getRequest().getSession(true);
+
+            session.setAttribute("usuariosession", usuario);
+
+            return new User(usuario.getEmail(), usuario.getClave(), permisos);
+        } else {
+            return null;
+        }
+}
 }
