@@ -10,19 +10,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="../css/producto_list.css">
+
+    <!-- vcode - sacar despues   -->
+    <link rel="stylesheet" href="../static/css/producto_list.css">
 </head>
 
 <body>
 
     <div class="container">
 
-
         <table class="table table-dark">
             <thead class="align-items-center">
-                <tr >
+                <tr>
                     <th scope="col">Id del producto</th>
                     <th scope="col">foto de producto</th>
                     <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
                     <th scope="col">Descripcion</th>
                     <th scope="col">EAN</th>
                     <th scope="col">Stock</th>
@@ -30,22 +34,24 @@
                     <th scope="col">fabricante</th>
                     <th scope="col">categoria</th>
                     <th scope="col">Estado</th>
+                    <th scope="col">Modificar</th>
 
                 </tr>
             </thead>
-            <tbody th:each="producto : ${productos}"> 
+            <tbody th:each="producto : ${productos}">
                 <tr>
                     <th scope="row" th:text="${producto.id}"></th>
-                    <!-- <td th:text="${producto.imagen}"></td> -->
-                    <!--td>
-                        <img th:if="${producto.imagen != null}" class="logo" th:src="${producto.imagen}" alt="imagen producto">
-                    </td-->
-                    <td >
-                        
-                        <img class="logo" th:if="${producto.imagen != null}" th:src="@{/imagen/producto/__${producto.imagen.id}__}"  alt="imagen producto" >
-                    </td> 
+                    <td>
+                        <img class="img" th:if="${producto.imagen != null}"
+                            th:src="@{/imagen/producto/__${producto.imagen.id}__}" alt="imagen producto">
+                    </td>
 
+<<<<<<< HEAD
+                            <img class="logo" th:if="${producto.imagen != null}" th:src="@{/imagen/__${producto.imagen.id}__}"  alt="imagen producto" >
+                        </td> 
+=======
                     <td th:text="${producto.nombre}"></td>
+                    <td th:text="${producto.precio}"></td>
                     <td th:text="${producto.descripcion}"></td>
                     <td th:text="${producto.EAN}"></td>
                     <td th:text="${producto.stock}"></td>
@@ -53,22 +59,21 @@
                     <td th:text="${producto.fabricante.nombre}"></td>
                     <td th:text="${producto.categoria.nombre}"></td>
                     <td th:text="${producto.estado}"></td>
-<!-- 
                     <td>
-                        <a th:href= "@{/admin/modificarRol/__${producto.id}__}"><i class="fas fa-feather-alt"></i>Cambiar</a>
+                        <a class="btn btn-primary" th:href="@{/producto/modificar/__${producto.id}__}"
+                            title="modificar"> <i class="bi bi-pen-fill"></i> </a>
                     </td>
-
-                    <td>
-                        <a th:href= "@{/admin/modificarRol/__${producto.id}__}"><i class="fas fa-feather-alt"></i> Modificar</a>
-                    </td> -->
+>>>>>>> master
 
                 </tr>
 
             </tbody>
         </table>
 
-
     </div>
+
+    <div th:replace="~{/fragments/msgExitoError :: div}"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>

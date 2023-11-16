@@ -1,6 +1,7 @@
 package com.caballerosGuardiaReal.ecommerce.Controladores;
 
 import com.caballerosGuardiaReal.ecommerce.excepciones.MiException;
+import com.caballerosGuardiaReal.ecommerce.servicios.ProductoServicio;
 import com.caballerosGuardiaReal.ecommerce.servicios.UsuarioServicio;
 import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ public class PortalControlador {
     
     @Autowired
     private UsuarioServicio usuarioServicio;
+    @Autowired
+    private ProductoServicio productoServicio;
     
     @GetMapping("/registrar")
     public String regristar(){
@@ -55,11 +58,22 @@ public class PortalControlador {
         if (error != null) {
             modelo.put("error", "usuario o contraseña invalida");
         }
-
+        
         return "login.html";
     }
+<<<<<<< HEAD
 
 >>>>>>> d4add65415946e78f1966031923e894b8ae8ba48
 */
+//=======
+    
+    
+    @GetMapping
+    public String inicio(ModelMap modelo){
+    modelo.addAttribute("productos", productoServicio.listarProductos() );
+        return  "index.html";
+    }
+//
+//>>>>>>> 0b6badb95a2dfb3477c4404bde56797409366211
 }
 
