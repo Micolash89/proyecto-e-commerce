@@ -7,14 +7,51 @@
     <title>E-commerce</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/producto_detalle.css">
+    <!-- solo para el vcode - sacarlo despues -->
+    <link rel="stylesheet" href="/static/css/producto_detalle.css">
 </head>
 
 <body>
-    <div>TODO write content</div>
+
+      <img th:src="@{imagen/producto/__${producto.imagen.id}__}" alt="algo">
+    <main class="main">
+
+        <section class="container main__section">
+
+            <section class="main__section--imagen">
+                <div class="imagen">
+                    <img class="imagen__img" th:src="@{imagen/producto/__${producto.imagen.id}__}" alt="">
+                </div>
+            </section>
+            <section class="main__section--detalle detalle">
+                <div>
+                    <h1 class="detalle__h1" th:text="${producto.nombre}">
+
+                    </h1>
+
+                    <span class="detalle__h4" th:text="${producto.stock}">
+
+                    </span>
+
+                </div>
+                <p class="detalle__p" th:text="${producto.descripcion}">
+                </p>
+
+                <h2 class="detalle__h2">
+                    precio $
+                    <span class="detalle__h2--span" th:text="${producto.precio}"></span>
+                </h2>
+                <form class="detalle__form">
+                    <input class="detalle__form--input" value="1" type="number" name="" id="">
+                    <button class="detalle__form--button" type="submit"><i class="bi bi-cart-fill"></i> comprar</button>
+                </form>
 
 
+            </section>
 
-    <main>
+        </section>
+
 
     </main>
 

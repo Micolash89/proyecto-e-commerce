@@ -129,5 +129,13 @@ public class ProductoControlador {
         return "redirect:/producto/lista";
         
     }
+    
+    @GetMapping("/{id}")
+    public String detalle(@PathVariable String id, ModelMap modelo){
+        System.out.println("hola");
+        modelo.addAttribute("producto", productoServicio.getOne(id));
+        
+        return "producto_detalle.html";
+    }
 
 }

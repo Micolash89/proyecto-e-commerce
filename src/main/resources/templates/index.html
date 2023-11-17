@@ -1,64 +1,70 @@
-
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>E-commerce</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-        <link rel="stylesheet" href="../css/index.css">
-    </head>
-    <body>
-        <header class="navbar" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-            <nav class="navbar">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
 
-                <div class="container-fluid ">
-                    <a class="navbar-brand" href="#galeria">
-                        <img src="../img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                    </a>
-                    <a class="navbar-brand">Nombre de La pagina</a>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>
-                </div>
-            </nav>
-            <nav class="nav">
-                 
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link link-light" th:if="${session.usuariosession == null}" th:href="@{/registrar}" id="navbarDropdown" role="button" aria-expanded="false">
-                            Registrate!
-                        </a>
+<body>
+    <header class="navbar">
 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link link-light" th:if="${session.usuariosession == null}" th:href="@{/login}" id="navbarDropdown" role="button" aria-expanded="false">
-                            LOGIN!
-                        </a>
+        <nav class="navbar">
 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link link-light" th:if="${session.usuariosession != null}" th:href="@{/logout}" id="navbarDropdown" role="button" aria-expanded="false">
-                            Cerrar sesión!
-                        </a>
+            <div class="container-fluid ">
+                <a class="navbar-brand" href="#galeria">
+                    <img src="../img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                </a>
+                <a class="navbar-brand">Nombre de La pagina</a>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
+        <nav class="nav">
 
-                    </li>
-                </ul>
-                 
-            </nav>
-            <nav class="nav" th:if="${session.usuariosession != null}">
-               
-            
             <ul class="nav">
-                
+                <li class="nav-item">
+                    <a class="nav-link link-light" th:if="${session.usuariosession == null}" th:href="@{/registrar}"
+                        id="navbarDropdown" role="button" aria-expanded="false">
+                        Registrate!
+                    </a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link-light" th:if="${session.usuariosession == null}" th:href="@{/login}"
+                        id="navbarDropdown" role="button" aria-expanded="false">
+                        LOGIN!
+                    </a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link-light" th:if="${session.usuariosession != null}" th:href="@{/logout}"
+                        id="navbarDropdown" role="button" aria-expanded="false">
+                        Cerrar sesión!
+                    </a>
+
+                </li>
+            </ul>
+
+        </nav>
+        <nav class="nav" th:if="${session.usuariosession != null}">
+
+
+            <ul class="nav">
+
                 <li class="nav-item">
                     <a class="nav-link active link-light" aria-current="page" href="#">Inicio</a>
                 </li>
                 <li class="nav-item dropdown link-light">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nuestros Productos</a>
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                        aria-expanded="false">Nuestros Productos</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Action</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -72,63 +78,66 @@
                 </li>
 
             </ul>
-                   
-        </nav>
-        </header>
-       
-        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="../img/cyberMonday.jpg" class="d-block carrucel-img" alt="imagen">
-                </div>
-                <div class="carousel-item">
-                    <img src="../img/cyber-monday.jpg" class="d-block carrucel-img" alt="imagen">
-                </div>
-                <div class="carousel-item">
-                    <img src="../img/cyberMonday2.jpg" class="d-block carrucel-img" alt="imagen">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        <section id="hero">
-            <h1>Los Mejores precios del Mercado</h1>
-            
-        </section> 
-        <h2 class="titulo">Nuestros productos</h2>
-        <section id="galeria" class="container-fluid">
-            
-            <div class="container text-center">
-                <div class="row row-cols-1 row-cols-md-3 g-4" >
-                    <div class="col" th:each="producto : ${productos}">
-                        <div class="card" id="card">
-                            <img th:src="@{imagen/producto/__${producto.imagen.id}__}" class="card-img-top" alt="Producto">
 
-                            <div class="card-body">
-                                <h5 class="card-title placeholder-glow" th:text="${producto.nombre}"></h5>
-                                <p class="card-text placeholder-glow" th:text="${producto.precio}"></p>
-                                <p class="card-text placeholder-glow" th:text="${producto.descripcion}"></p>
-                                <a href="#" class="btn btn-primary">Agregar al carrito</a>
-                                <a href="#" class="btn btn-primary">Ver detalles</a>
-                            </div>
+        </nav>
+    </header>
+
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../img/cyberMonday.jpg" class="d-block carrucel-img" alt="imagen">
+            </div>
+            <div class="carousel-item">
+                <img src="../img/cyber-monday.jpg" class="d-block carrucel-img" alt="imagen">
+            </div>
+            <div class="carousel-item">
+                <img src="../img/cyberMonday2.jpg" class="d-block carrucel-img" alt="imagen">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <section id="hero">
+        <h1>Los Mejores precios del Mercado</h1>
+
+    </section>
+    <h2 class="titulo">Nuestros productos</h2>
+    <section id="galeria" class="container-fluid">
+
+        <div class="container text-center">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col" th:each="producto : ${productos}">
+                    <div class="card" id="card">
+                        <img th:src="@{imagen/producto/__${producto.imagen.id}__}" class="card-img-top" alt="Producto">
+
+                        <div class="card-body">
+                            <h5 class="card-title placeholder-glow" th:text="${producto.nombre}"></h5>
+                            <p class="card-text placeholder-glow" th:text="${producto.precio}"></p>
+                            <p class="card-text placeholder-glow" th:text="${producto.descripcion}"></p>
+                            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            <a th:href="@{producto/__${producto.id}__}" class="btn btn-primary">Ver detalles</a>
                         </div>
                     </div>
                 </div>
-                </div>
-        </section>
-        
-        <section id="como-pedir">
-            <h2>Aca va a ir un titulo</h2>
-        </section>
-        <footer>
+            </div>
+        </div>
+    </section>
 
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    </body>
+    <section id="como-pedir">
+        <h2>Aca va a ir un titulo</h2>
+    </section>
+    <footer>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
