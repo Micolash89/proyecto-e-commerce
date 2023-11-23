@@ -8,6 +8,9 @@ import com.caballerosGuardiaReal.ecommerce.excepciones.MiException;
 import com.caballerosGuardiaReal.ecommerce.servicios.CategoriaServicio;
 import com.caballerosGuardiaReal.ecommerce.servicios.FabricanteServicio;
 import com.caballerosGuardiaReal.ecommerce.servicios.ProductoServicio;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -84,7 +87,7 @@ public class ProductoControlador {
         Producto producto = productoServicio.getOne(id);
         List<Categoria> categorias = categoriaServicio.listarCategorias();
         List<Fabricante> fabricantes = fabricanteServicio.ListarFabricantes();
-
+        
         modelo.addAttribute("producto", producto);
         modelo.addAttribute("categorias", categorias);
         modelo.addAttribute("fabricantes", fabricantes);
@@ -132,10 +135,9 @@ public class ProductoControlador {
     
     @GetMapping("/{id}")
     public String detalle(@PathVariable String id, ModelMap modelo){
-        System.out.println("hola");
         modelo.addAttribute("producto", productoServicio.getOne(id));
         
         return "producto_detalle.html";
     }
-
+    
 }

@@ -14,37 +14,43 @@
 
 <body>
 
-      <img th:src="@{imagen/producto/__${producto.imagen.id}__}" alt="algo">
     <main class="main">
 
         <section class="container main__section">
 
             <section class="main__section--imagen">
                 <div class="imagen">
-                    <img class="imagen__img" th:src="@{imagen/__${producto.imagen.id}__}" alt="">
+                    <img class="logo imagen__img" th:if="${producto.imagen != null}"
+                        th:src="@{/imagen/__${producto.imagen.id}__}" alt="imagen producto">
                 </div>
             </section>
             <section class="main__section--detalle detalle">
-                <div>
-                    <h1 class="detalle__h1" th:text="${producto.nombre}">
+                <div class="detalle__Div">
+                    <h1 class="detalle__h1" th:text="${producto.nombre}"></h1>
+                    <!-- <h1 class="detalle__h1">titulo</h1> -->
 
-                    </h1>
+                    <h6 class="detalle__id" th:text="${producto.id}"></h6>
+                    <!-- <h6 class="detalle__id">titulo</h6> -->
 
-                    <span class="detalle__h4" th:text="${producto.stock}">
+                    <span th:class="'detalle__h4 ' + ${producto.stock>0?'stockOn':'stockOff'} "
+                        th:text="${producto.stock>0?'En Stock':'Sin Stock'}"></span>
+                    <!-- <span th:class="detalle__h4 " th:text="${producto.stock}"></span> -->
 
-                    </span>
 
                 </div>
-                <p class="detalle__p" th:text="${producto.descripcion}">
-                </p>
+                <p class="detalle__p" th:text="${producto.descripcion}"></p>
+                <!-- <p class="detalle__p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quisquam
+                    provident maiores rerum, nihil laborum consectetur tempora in assumenda nulla.</p> -->
 
                 <h2 class="detalle__h2">
-                    precio $
+                    precio <b>$</b>
                     <span class="detalle__h2--span" th:text="${producto.precio}"></span>
                 </h2>
-                <form class="detalle__form">
-                    <input class="detalle__form--input" value="1" type="number" name="" id="">
-                    <button class="detalle__form--button" type="submit"><i class="bi bi-cart-fill"></i> comprar</button>
+                <form class="detalle__form" action="">
+                    <input class="detalle__form--input" value="1" type="number" name="" id=""
+                        th:disabled="${producto.stock < 1}" min="1" th:max="${producto.stock}">
+                    <button class="detalle__form--button" th:disabled="${producto.stock < 1}" type="submit"><i
+                            class="bi bi-cart-fill"></i> comprar</button>
                 </form>
 
 
@@ -54,13 +60,11 @@
 
 
     </main>
+    <div th:replace="~{fragments/Footer :: Footer}">
 
-    <footer>
-
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>

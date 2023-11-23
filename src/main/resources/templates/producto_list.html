@@ -42,7 +42,7 @@
                 <tr>
                     <th scope="row" th:text="${producto.id}"></th>
                     <td>
-                        <img class="logo" th:if="${producto.imagen != null}"
+                        <img class="logo img" th:if="${producto.imagen != null}"
                             th:src="@{/imagen/__${producto.imagen.id}__}" alt="imagen producto">
                     </td>
 

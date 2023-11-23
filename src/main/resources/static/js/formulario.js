@@ -2,7 +2,7 @@ const dropArea = document.getElementById("drop-area");
 const inputFile = document.getElementById("input-file");
 const imageView = document.getElementById("img-view");
 const inputButton = document.getElementById("input-button");
-
+const hero = document.getElementById("hero");
 
 
 inputFile.addEventListener("change", unploadImage);
@@ -13,7 +13,7 @@ const fabricante = document.getElementById("fabricante");
 
 const categoriaRadio = document.getElementById("categoria-radio");
 const fabricanteRadio = document.getElementById("fabricante-radio");
-console.log("hola");
+
 function unploadImage() {
 
     if (inputFile.files != null) {
@@ -40,8 +40,10 @@ inputButton.addEventListener("click", boton)
 
 function boton(e) {
     e.preventDefault();
-    inputFile.files[0] = null;
-    imageView.style.backgroundImage = "";
+    console.log("hola")
+    inputFile.value = "";
+    imageView.style.backgroundImage = `url("")`;
+    inputButton.hidden = true;
     imageView.innerHTML = `<i class="bi bi-cloud-arrow-up-fill"></i>
     <p>click o arrastre y suelte <br>para agregar el archivo</p>
     <span>subir una imagen</span>`;
@@ -55,7 +57,7 @@ function boton(e) {
 categoriaRadio.addEventListener("click", categoriaFunction);
 
 function categoriaFunction() {
-    console.log("hola");
+
     console.log(categoriaRadio.checked);
     if (categoriaRadio.checked) {
         categoria.innerHTML = '<span class="input-group-text" id="inputGroup-sizing-default">Categoria</span> <input type="text" name="idCategoria" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">';

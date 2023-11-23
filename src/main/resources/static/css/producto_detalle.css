@@ -1,4 +1,5 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+@import url("variables.css");
 
 .main__section,
 .main__section--detalle {
@@ -35,4 +36,67 @@
 .detalle {
   width: 50%;
   padding: 20px;
+}
+
+.detalle__Div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* id */
+.detalle__id {
+  font-weight: 400;
+}
+
+/* stock */
+.detalle__h4 {
+  align-self: flex-end;
+  width: fit-content;
+}
+
+.stockOn {
+  background-color: var(--txt-verde);
+  color: var(--txt-blanco);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.stockOff {
+  background-color: var(--txt-rojo);
+  color: var(--txt-blanco);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/* precio */
+.detalle__h2 {
+  border: 1px solid var(--txt-negro);
+  width: fit-content;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: 400;
+}
+
+.detalle__h2 span {
+  font-weight: 800;
+}
+
+/* form-input */
+.detalle__form {
+  width: 75%;
+}
+
+.detalle__form--input {
+  padding: 12px;
+  width: 40%;
+  border-color: var(--txt-gris);
+  border-style: solid;
+}
+
+.detalle__form--button {
+  padding: 12px;
+  width: 40%;
+  color: var(--txt-blanco);
+  background-color: var(--txt-negro);
+  box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.15);
 }

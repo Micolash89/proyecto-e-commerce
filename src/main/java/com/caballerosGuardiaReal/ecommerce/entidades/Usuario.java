@@ -20,6 +20,7 @@ public class Usuario {
     
     private String nombreCompleto;
     private String clave;
+    
     private String email;
     private String direccion;
     private Integer codigoPostal;

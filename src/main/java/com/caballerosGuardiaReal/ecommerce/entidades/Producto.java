@@ -13,10 +13,11 @@ import lombok.Data;
 
 @Entity
 @Data
+
 public class Producto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.UUID)//cambiar al identity
     private String id;
 
     private String nombre;

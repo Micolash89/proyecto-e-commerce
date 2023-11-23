@@ -2,4 +2,10 @@
   /*Declarar variables*/
   /* --txt-blanco: #FFFFFF;
     --txt-negro: #000000; */
+
+  --txt-rojo: rgb(236, 40, 40);
+  --txt-verde: rgb(96, 223, 96);
+  --txt-blanco: white;
+  --txt-negro: black;
+  --txt-gris: rgb(233, 233, 233);
 }
