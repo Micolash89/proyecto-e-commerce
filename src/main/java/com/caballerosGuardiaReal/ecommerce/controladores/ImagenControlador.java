@@ -1,9 +1,7 @@
 package com.caballerosGuardiaReal.ecommerce.controladores;
 
 import com.caballerosGuardiaReal.ecommerce.entidades.Imagen;
-import com.caballerosGuardiaReal.ecommerce.entidades.Usuario;
 import com.caballerosGuardiaReal.ecommerce.servicios.ImagenServicio;
-import com.caballerosGuardiaReal.ecommerce.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -18,17 +16,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  * @author Matias Insaurralde
  */
-///revisar esto no funca
+
 @Controller
 @RequestMapping("/imagen")
 public class ImagenControlador {
 
-    @Autowired
-    private UsuarioServicio usuarioServicio;
 
     @Autowired
     private ImagenServicio imagenServicio;
     
+<<<<<<< HEAD
 //    @GetMapping("/producto/{id}")
 //   public ResponseEntity<byte[]> ImagenUsuario(@PathVariable String id){
 //       Usuario usuario = usuarioServicio.getOne(id);
@@ -40,6 +37,9 @@ public class ImagenControlador {
 //        
 //       return new ResponseEntity<>(imagen,headers,HttpStatus.OK);
 //    }
+=======
+
+>>>>>>> master
     @GetMapping("/{id}")
     public ResponseEntity<byte[]> obtenerImagen(@PathVariable String id) {
 
@@ -54,4 +54,16 @@ public class ImagenControlador {
         }
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
