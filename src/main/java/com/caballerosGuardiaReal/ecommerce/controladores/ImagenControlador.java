@@ -25,21 +25,6 @@ public class ImagenControlador {
     @Autowired
     private ImagenServicio imagenServicio;
     
-<<<<<<< HEAD
-//    @GetMapping("/producto/{id}")
-//   public ResponseEntity<byte[]> ImagenUsuario(@PathVariable String id){
-//       Usuario usuario = usuarioServicio.getOne(id);
-//        
-//       byte[] imagen = usuario.getImagen().getContenido();
-//        
-//       HttpHeaders headers = new HttpHeaders();
-//       headers.setContentType(MediaType.IMAGE_JPEG);
-//        
-//       return new ResponseEntity<>(imagen,headers,HttpStatus.OK);
-//    }
-=======
-
->>>>>>> master
     @GetMapping("/{id}")
     public ResponseEntity<byte[]> obtenerImagen(@PathVariable String id) {
 
