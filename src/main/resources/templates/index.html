@@ -108,7 +108,7 @@
                 <div class="row row-cols-1 row-cols-md-3 g-4" >
                     <div class="col" th:each="producto : ${productos}">
                         <div class="card" id="card">
-                            <img th:src="@{imagen/producto/__${producto.imagen.id}__}" class="card-img-top" alt="Producto">
+                            <img th:src="@{/imagen/__${producto.imagen.id}__}" class="card-img-top" alt="Producto">
 
                             <div class="card-body">
                                 <h5 class="card-title placeholder-glow" th:text="${producto.nombre}"></h5>

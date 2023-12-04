@@ -40,7 +40,7 @@ public class ImagenControlador {
 //        
 //       return new ResponseEntity<>(imagen,headers,HttpStatus.OK);
 //    }
-    @GetMapping("/producto/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<byte[]> obtenerImagen(@PathVariable String id) {
 
         Imagen imagen = imagenServicio.obtenerImagenPorId(id);
